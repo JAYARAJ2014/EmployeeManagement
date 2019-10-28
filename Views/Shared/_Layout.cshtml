@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- This is rendered from Layout View -->
+        <title>@ViewBag.PageTitle</title>
+        <environment include="Development">
+            <link   href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+        </environment>
+        <environment include="Staging, Production">
+            <link   href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+        </environment>
+        <link   href="~/css/site.css" rel="stylesheet"/>
+
+    </head>
+    <body>
+        <div class="container">
+          <!-- <h3>@ViewBag.PageTitle</h3> -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand"  asp-action="index" asp-controller="home" >
+                <img src="~/images/users.png" height="30" width="30">
+            </a> 
+             <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#collapsibleNavBar">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavBar">
+              
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a asp-action="index" asp-controller="home" class="nav-link">List</a>
+                </li>
+                <li class="nav-item">
+                    <a asp-action="create" asp-controller="home"   class="nav-link">Create</a>
+                </li>
+            </ul>
+            </div>
+        </nav>
+        <div >
+        @RenderBody()
+
+        </div>
+        @if(IsSectionDefined("Scripts"))
+        {
+        @RenderSection("Scripts",required: true)
+        }
+            </div>
+    </body>
+    
+</html>
