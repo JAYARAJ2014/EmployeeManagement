@@ -1,7 +1,7 @@
 # EmployeeManagement
 A sample project to learn ASP.NET Core Mvc from ground up
 
-##Model Validation
+## Model Validation
 Consider the following 
 `   
  <input asp-for="Name" class="form-control" placeholder="Name"/>
