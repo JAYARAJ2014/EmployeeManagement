@@ -16,3 +16,4 @@ So in order to enable validation, all we need to do is add data annotations to t
 `[MaxLength(20, ErrorMessage = "Not more than 20 chars")]`
 
 `public string Name { get; set; }`
+
