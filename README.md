@@ -17,3 +17,4 @@ So in order to enable validation, all we need to do is add data annotations to t
 
 `public string Name { get; set; }`
 
+Note: Properties that are integer (Or numeric) are inherently required. 
