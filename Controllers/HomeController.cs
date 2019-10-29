@@ -29,9 +29,18 @@ namespace EmployeeManagement.Controllers
             return View(detailsViewModel);
         }
 
-        public ViewResult Create(int? id)
+        [HttpGet]
+        public ViewResult Create()
         {
             return View();
+        }
+
+
+        [HttpPost]
+        public RedirectToActionResult Create(Employee employee)
+        {
+            var newEmployee = _repository.Add(employee);
+            return RedirectToAction("details", new { id = newEmployee.Id });
         }
 
     }

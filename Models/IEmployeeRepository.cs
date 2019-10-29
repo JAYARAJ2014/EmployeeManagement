@@ -6,5 +6,7 @@ namespace EmployeeManagement.Models
     {
         IEnumerable<Employee> GetAll();
         Employee GetEmployee(int id);
+
+        Employee Add(Employee employee);
     }
 }
