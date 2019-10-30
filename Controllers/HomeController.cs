@@ -29,7 +29,12 @@ namespace EmployeeManagement.Controllers
         [Route("{id?}")]
         public ViewResult Details(int? id)
         {
-            var employee = _repository.GetEmployee(id ?? 1);
+            var employee = _repository.GetEmployee(id.Value);
+            if(employee==null){
+                Response.StatusCode =404;
+                return View("EmployeeNotFound", id.Value);
+            }
+
             var detailsViewModel = new DetailsViewModel { Employee = employee, PageTitle = $"Details of {employee.Name}" };
             return View(detailsViewModel);
         }
