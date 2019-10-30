@@ -5,9 +5,12 @@
         <title>@ViewBag.PageTitle</title>
         <environment include="Development">
             <link   href="~/node_modules/bootstrap/dist/css/bootstrap.css" rel="stylesheet"/>
+            <script src="~/node_modules/jquery/dist/jquery.js"></script>
         </environment>
         <environment include="Staging, Production">
             <link   href="~/node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"/>
+            <script src="~/node_modules/jquery/dist/jquery.min.js"></script>
+
         </environment>
         <link   href="~/css/site.css" rel="stylesheet"/>
 

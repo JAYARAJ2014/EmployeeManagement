@@ -40,3 +40,7 @@ Update the db
 `dotnet ef database update`
 
 Want to update seed data? Just make changes int he modelbuilder and then add additioanl migration and update.
+
+### Photo file upload
+
+At this stage we have added new ViewModel which is slightly different from Employee Entity. This is done because we want to use different data type than string for the photopath.  IFormFile is what we are using in the ViewModel. IFormFile is required to access the file from the server. 
