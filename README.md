@@ -1,5 +1,7 @@
 # EmployeeManagement
-A sample project to learn ASP.NET Core Mvc from ground up
+A sample  ASP.NET Core Mvc application that has:
+
+Repository Pattern Mock Repository Implementation,  Sql Server Based Repository Implementation  using  Entity Framework Core
 
 ## Model Validation
 Consider the following 
@@ -18,3 +20,22 @@ So in order to enable validation, all we need to do is add data annotations to t
 `public string Name { get; set; }`
 
 Note: Properties that are integer (Or numeric) are inherently required. 
+
+
+###Adding EF Core  Migrations
+
+` dotnet ef migrations add InitialModel
+
+To persist the changes 
+
+` dotnet ef database update
+For seeding the DB , override OnModelCreate in AppDbContext and then initialize modelBuilder.Entity with necessary data objects
+
+Add additional mgiration for seeding
+
+`dotnet ef migrations add SeedEmployeesTable
+
+Update the db
+
+`dotnet ef database update
+
