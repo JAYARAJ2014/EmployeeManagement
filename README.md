@@ -24,18 +24,18 @@ Note: Properties that are integer (Or numeric) are inherently required.
 
 ###Adding EF Core  Migrations
 
-` dotnet ef migrations add InitialModel
+`dotnet ef migrations add InitialModel`
 
 To persist the changes 
 
-` dotnet ef database update
+`dotnet ef database update`
 For seeding the DB , override OnModelCreate in AppDbContext and then initialize modelBuilder.Entity with necessary data objects
 
 Add additional mgiration for seeding
 
-`dotnet ef migrations add SeedEmployeesTable
+`dotnet ef migrations add SeedEmployeesTable`
 
 Update the db
 
-`dotnet ef database update
+`dotnet ef database update`
 
