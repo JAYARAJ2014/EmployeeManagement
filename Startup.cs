@@ -20,7 +20,7 @@ namespace EmployeeManagement
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContextPool<AppDbContext> (options=>options.UseSqlServer(_config.GetConnectionString("Default")));
+            services.AddDbContextPool<AppDbContext>(options => options.UseSqlServer(_config.GetConnectionString("Default")));
             services.AddMvc().AddXmlSerializerFormatters();
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
         }
@@ -32,7 +32,11 @@ namespace EmployeeManagement
             {
                 app.UseDeveloperExceptionPage();
             }
-            app.UseStaticFiles(); 
+            else
+            {
+                app.UseStatusCodePagesWithRedirects("/Error/{0}");
+            }
+            app.UseStaticFiles();
             app.UseMvc();
         }
     }
