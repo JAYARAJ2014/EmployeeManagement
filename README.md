@@ -22,7 +22,7 @@ So in order to enable validation, all we need to do is add data annotations to t
 Note: Properties that are integer (Or numeric) are inherently required. 
 
 
-###Adding EF Core  Migrations
+### Adding EF Core  Migrations
 
 `dotnet ef migrations add InitialModel`
 
@@ -39,3 +39,4 @@ Update the db
 
 `dotnet ef database update`
 
+Want to update seed data? Just make changes int he modelbuilder and then add additioanl migration and update.
