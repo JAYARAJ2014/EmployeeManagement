@@ -15,5 +15,6 @@ namespace EmployeeManagement.Models
         [Display(Name = "Email Id")]
         [MaxLength(255, ErrorMessage = "Not more than 255 chars")]
         public string Email { get; set; }
+        public string PhotoPath {get;set;}
     }
 }
