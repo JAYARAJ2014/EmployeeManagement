@@ -47,5 +47,10 @@ At this stage we have added new ViewModel which is slightly different from Emplo
 
 ### Global Exception handling
 
-Add the following middleware and add an actionmethod in Error controller
+Add the ExceptionHandling middleware
 `    app.UseExceptionHandler("/Error"); `
+
+ Add actionmethod in Error controller
+ Add ErrorView
+
+ 
