@@ -29,6 +29,7 @@ namespace EmployeeManagement.Controllers
         [Route("{id?}")]
         public ViewResult Details(int? id)
         {
+            throw new Exception ("Error in details");
             var employee = _repository.GetEmployee(id.Value);
             if(employee==null){
                 Response.StatusCode =404;

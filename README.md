@@ -44,3 +44,8 @@ Want to update seed data? Just make changes int he modelbuilder and then add add
 ### Photo file upload
 
 At this stage we have added new ViewModel which is slightly different from Employee Entity. This is done because we want to use different data type than string for the photopath.  IFormFile is what we are using in the ViewModel. IFormFile is required to access the file from the server. 
+
+### Global Exception handling
+
+Add the following middleware and add an actionmethod in Error controller
+`    app.UseExceptionHandler("/Error"); `

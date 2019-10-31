@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EmployeeManagement.Controllers
@@ -18,6 +20,20 @@ namespace EmployeeManagement.Controllers
             string message;
             ViewBag.ErrorMessage= (codeMessageTable.TryGetValue(statusCode, out message))?message:codeMessageTable[0];
             return View("NotFound");
+        }
+
+
+        [Route("Error")]
+        [AllowAnonymous]
+        public IActionResult Error()
+        {
+            var ex = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
+            ViewBag.ExceptionPath = ex.Path; 
+            ViewBag.ExceptionMessage= ex.Error.Message;
+            ViewBag.StackTrace = ex.Error.StackTrace;
+
+
+            return View("Error");
         }
     }
 }
