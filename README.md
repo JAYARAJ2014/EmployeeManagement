@@ -53,4 +53,11 @@ Add the ExceptionHandling middleware
  Add actionmethod in Error controller
  Add ErrorView
 
- 
+
+### Logging
+
+Install logger package NLog.Web.AspNetCore
+
+
+Inject ILogger to the constructor of the class you want to log. 
+` ILogger<ErrorController> `
