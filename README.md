@@ -57,7 +57,5 @@ Add the ExceptionHandling middleware
 ### Logging
 
 Install logger package NLog.Web.AspNetCore
-
-
-Inject ILogger to the constructor of the class you want to log. 
+https://github.com/NLog/NLog/wiki/Getting-started-with-ASP.NET-Core-2
 ` ILogger<ErrorController> `

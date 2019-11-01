@@ -11,18 +11,21 @@ namespace EmployeeManagement
     {
         public static void Main(string[] args)
         {
-            NLogBuilder.ConfigureNLog("nlog.config");
-
             CreateWebHostBuilder(args).Build().Run();
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-             .ConfigureLogging(l =>
+             .ConfigureLogging((hc, l) =>
              {
-                 l.ClearProviders();
-                 l.SetMinimumLevel(LogLevel.Trace);
-             }).UseNLog()
+                 //  l.ClearProviders();
+                 l.AddConfiguration(hc.Configuration.GetSection("Logging"));
+                 l.AddConsole();
+                 l.AddDebug();
+                 l.AddEventSourceLogger();
+                 //  l.SetMinimumLevel(LogLevel.Trace);
+                 l.AddNLog();
+             })
                 .UseStartup<Startup>();
     }
 }
