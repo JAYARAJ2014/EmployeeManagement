@@ -4,6 +4,7 @@ using EmployeeManagement.Models;
 using EmployeeManagement.ViewModels;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace EmployeeManagement.Controllers
 {
@@ -12,11 +13,13 @@ namespace EmployeeManagement.Controllers
     {
         private readonly IEmployeeRepository _repository;
         private readonly IHostingEnvironment _environment;
+        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(IEmployeeRepository repository, IHostingEnvironment hostingEnvironment)
+        public HomeController(IEmployeeRepository repository, IHostingEnvironment hostingEnvironment, ILogger<HomeController> logger)
         {
             _repository = repository;
             _environment = hostingEnvironment;
+            _logger = logger; 
         }
         [Route("/")]
         [Route("")]
@@ -29,6 +32,17 @@ namespace EmployeeManagement.Controllers
         [Route("{id?}")]
         public ViewResult Details(int? id)
         {
+            // _logger.LogTrace("Trace Log");
+            // _logger.LogDebug("Debug Log");
+            // _logger.LogInformation("Information Log");
+            // _logger.LogWarning("Warning Log");
+            // _logger.LogError("Error Log");
+            // _logger.LogCritical("Critical Log");
+            // _logger.Log(LogLevel.None,"Major error occured. Not sure what happened",
+
+
+
+
             var employee = _repository.GetEmployee(id.Value);
             if(employee==null){
                 Response.StatusCode =404;

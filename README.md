@@ -59,3 +59,16 @@ Add the ExceptionHandling middleware
 Install logger package NLog.Web.AspNetCore
 https://github.com/NLog/NLog/wiki/Getting-started-with-ASP.NET-Core-2
 ` ILogger<ErrorController> `
+
+Configuration file needs to be always copied to output. Modify csproj as follows
+
+`
+
+ <ItemGroup>
+    <Content Update="Nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+
+`
