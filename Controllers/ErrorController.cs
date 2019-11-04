@@ -9,18 +9,15 @@ namespace EmployeeManagement.Controllers
     public class ErrorController : Controller
     {
 
-        private readonly Dictionary<int, string> codeMessageTable;
         private ILogger<ErrorController> _logger;
 
         public ErrorController(ILogger<ErrorController> logger)
         {
             _logger = logger;
-            codeMessageTable = new Dictionary<int, string>();
-            codeMessageTable.Add(0, "Sorry! We dont know what you really mean");
-            codeMessageTable.Add(404, "Sorry the resquested resource could not be found");
+
         }
-        
-            
+
+
         [Route("Error/{statusCode}")]
         public IActionResult HttpStatusCodeHandler(int statusCode)
         {

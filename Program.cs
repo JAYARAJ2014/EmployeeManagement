@@ -23,7 +23,7 @@ namespace EmployeeManagement
                  l.AddConsole();
                  l.AddDebug();
                  l.AddEventSourceLogger();
-                 //  l.SetMinimumLevel(LogLevel.Trace);
+                 l.SetMinimumLevel(LogLevel.Trace);
                  l.AddNLog();
              })
                 .UseStartup<Startup>();
